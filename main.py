@@ -17,6 +17,9 @@
 import webapp2
 import jinja2
 import os
+import json
+from google.appengine.api import urlfetch
+
 
 jinja_environment = jinja2.Environment(
 loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -26,17 +29,22 @@ autoescape = True)
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         index_template = jinja_environment.get_template('templates/index.html')
-        self.response.out.write(index_template.render())
+        self.response.write(index_template.render())
 
 class FinderHandler(webapp2.RequestHandler):
     def get(self):
         finder_template = jinja_environment.get_template('templates/finder.html')
-        self.response.out.write(finder_template.render())
+        self.response.write(finder_template.render())
+    def post(self):
+        self.response.write(self.request.get('location'))
+        
+
+
 
 class MakerHandler(webapp2.RequestHandler):
     def get(self):
         maker_template = jinja_environment.get_template('templates/maker.html')
-        self.response.out.write(maker_template.render())
+        self.response.write(maker_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
