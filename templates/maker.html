@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="scripts/scripts.js"></script>
+  <link type= "text/css" rel= "stylesheet" href="stylesheets/stylesheet.css"/>
   </head>
   <body>
-    <h1>Does this work?</h1>
+    <h1>Make your own Donut!</h1>
     <!-- All our options:
     Cake:
       plain
@@ -24,23 +27,42 @@
       chocolate drizzle
       candy
     -->
-    <form method ="get" action="" id="making_donut_form">
+    <!-- <form method ="get" action="" id="making_donut_form">
       <select name="cake">
         <option value="plain">Plain</option>
         <option value="chocolate">Chocolate</option>
         <option value="redvelvet">Red Velvet</option>
         <option value="lemon">Lemon</option>
-        <option value="chocolate">Chocolate</option>
+        <option value="pistachio">Pistachio</option>
       </select>
-
+<br>
       <select name="frosting">
-        <option value="vanilla">Vanilla</option>
+        <option value="vanilla">Vanilla Glaze</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="strawberry">Strawberry</option>
+        <option value="lemon">Lemon Glaze</option>
+        <option value="orange">Orange Glaze</option>
       </select>
-
+<br>
       <select name="toppings">
+        <option value="none">No Topping</option>
         <option value="nuts">Nuts</option>
+        <option value="fruit">Fruit</option>
+        <option value="chocochips">Chocolate Chips</option>
+        <option value="chocodrizzle">Chocolate Drizzle</option>
+        <option value="candy">Candy</option>
       </select>
 
-    </form>
+    </form> -->
+      <h3>Cake</h3>
+            <button id="button_color" type="plain">Plain</button>
+            <button id="button_color" type="chocolate">Chocolate</button>
+      <h3>Fosting</h3>
+            <button id="button_color" type="vanilla">Vanilla Glaze</button>
+            <button id="button_color" type="chocolate">Chocolate</button>
+      <h3>Toppings</h3>
+            <button id="button_color" type="none">No toppings</button>
+            <button id="button_color" type="nuts">Nuts</button>
+
   </body>
 </html>
