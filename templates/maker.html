@@ -27,8 +27,10 @@
       chocolate drizzle
       candy
     -->
-    <!-- <form method ="get" action="" id="making_donut_form">
-      <select name="cake">
+  <img class="flavor" id="plainglaze" src="http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"/>
+  <img class="flavor" id="chocosprinkle" src="http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg"/>
+    <form method ="get" action="" id="making_donut_form">
+      <select name="cake" id="cakeflavor">
         <option value="plain">Plain</option>
         <option value="chocolate">Chocolate</option>
         <option value="redvelvet">Red Velvet</option>
@@ -52,19 +54,18 @@
         <option value="chocodrizzle">Chocolate Drizzle</option>
         <option value="candy">Candy</option>
       </select>
-
-    </form> -->
-<img id="plainglaze" src="http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"/>
-<img id="chocosprinkle" src="http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg"/>
+      <p><input id="submit" type="submit" value="Make My Donut"></p>
+    </form>
+<!--
       <h3>Cake</h3>
-            <button id="button_color" type="plain" onclick="$('#plainglaze').show()">Plain</button>
-            <button id="button_color" type="chocolate" onclick="$('#chocosprinkle').show()">Chocolate</button>
+            <button id="plain" type="plain">Plain</button>
+            <button type="chocolate" onclick="$('#chocosprinkle').show()" onclick="$('#plainglaze').hide()">Chocolate</button>
       <h3>Fosting</h3>
-            <button id="button_color" type="vanilla" onclick="$('#chocosprinkle').show()">Vanilla Glaze</button>
-            <button id="button_color" type="chocolate" onclick="$('#chocosprinkle').show()">Chocolate</button>
+            <button type="vanilla" onclick="$('#chocosprinkle').show()">Vanilla Glaze</button>
+            <button type="chocolate" onclick="$('#chocosprinkle').show()">Chocolate</button>
       <h3>Toppings</h3>
-            <button id="button_color" type="none" onclick="$('#chocosprinkle').show()">No toppings</button>
-            <button id="button_color" type="nuts" onclick="$('#chocosprinkle').show()">Nuts</button>
+            <button type="none" onclick="$('#chocosprinkle').show()">No toppings</button>
+            <button type="nuts" onclick="$('#chocosprinkle').show()">Nuts</button> -->
 
 
   </body>
