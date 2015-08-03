@@ -1,3 +1,10 @@
-ul{
-  list-style: none;
+#chocosprinkle{
+  width: 30%;
+  margin-left: 10%;
+  display: none;
+}
+#plainglaze{
+  width: 30%;
+  margin-left: 10%;
+  display: none;
 }
