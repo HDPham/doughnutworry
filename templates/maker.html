@@ -2,7 +2,7 @@
 <html>
   <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="scripts/scripts.js"></script>
+  <script src="scripts/script.js"></script>
   <link type= "text/css" rel= "stylesheet" href="stylesheets/stylesheet.css"/>
   </head>
   <body>
@@ -27,17 +27,19 @@
       chocolate drizzle
       candy
     -->
-  <img class="flavor" id="plainglaze" src="http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"/>
-  <img class="flavor" id="chocosprinkle" src="http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg"/>
+  <div id="donutdiv"><img id="donutimage" class="flavor"  src=""/></div>
+  <!-- <img class="flavor" id="chocosprinkle" src="http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg"/> -->
     <form method ="get" action="" id="making_donut_form">
       <select name="cake" id="cakeflavor">
-        <option value="plain">Plain</option>
-        <option value="chocolate">Chocolate</option>
-        <option value="redvelvet">Red Velvet</option>
+        <option class ="cake plain" value="plain">Plain</option>
+        <option class ="cake chocolate" value="chocalate">Chocolate</option>
+        <!-- <option value="redvelvet">Red Velvet</option>
         <option value="lemon">Lemon</option>
-        <option value="pistachio">Pistachio</option>
+        <option value="pistachio">Pistachio</option> -->
       </select>
-<br>
+
+
+<!-- <br>
       <select name="frosting">
         <option value="vanilla">Vanilla Glaze</option>
         <option value="chocolate">Chocolate</option>
@@ -53,9 +55,11 @@
         <option value="chocochips">Chocolate Chips</option>
         <option value="chocodrizzle">Chocolate Drizzle</option>
         <option value="candy">Candy</option>
-      </select>
+      </select> -->
       <p><input id="submit" type="submit" value="Make My Donut"></p>
     </form>
+
+    <!-- last edit -->
 <!--
       <h3>Cake</h3>
             <button id="plain" type="plain">Plain</button>
