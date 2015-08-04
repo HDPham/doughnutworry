@@ -21,6 +21,7 @@ import json
 from google.appengine.ext import ndb
 from google.appengine.api import users
 from google.appengine.api import urlfetch
+import logging
 
 
 jinja_environment = jinja2.Environment(
@@ -61,8 +62,22 @@ class FinderHandler(webapp2.RequestHandler):
 
 class SelectDonutHandler(webapp2.RequestHandler):
     def post(self):
+        logging.info(self.request.get("selected"))
+        chosen = self.request.get("selected")
         # http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg
-        self.response.write("http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg")
+        # possibly add dictionary with values and their urls
+        #cake = self.request.get_all('cake')
+        dcake = {'plain' : "http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2009/08/logosavedastransparentpng8.png",
+            'chocolate' : "http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg"}
+        url = dcake.get(chosen)
+        # url = "http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"
+        self.response.headers['Content-Type'] = 'application/json'
+        response = {"url":url,
+                    # "name": "My Doughnut",
+                    # "text_color": "red"
+                    }
+        self.response.write(json.dumps(response))
+
 
 class MakerHandler(webapp2.RequestHandler):
     def get(self):

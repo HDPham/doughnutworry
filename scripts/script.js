@@ -3,7 +3,7 @@
 
 function ReceivedImage(data){
   console.log(data);
-  $("#donutimage").attr("src", data);
+  $("#donutimage").attr("src", data.url);
  $("#plainglaze").fadeIn(1000);
 }
 
@@ -11,7 +11,8 @@ $(document).ready(function() {
 
   $("#submit").click(function(e){
     e.preventDefault();
-    $.post("select", {"selected":"plain"}, ReceivedImage)
+    var selected_value = $("#cakeflavor").val()
+    $.post("select", {"selected": selected_value}, ReceivedImage)
     console.log("button clicked");
  });
 });
