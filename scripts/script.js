@@ -3,7 +3,7 @@
 
 function ReceivedImage(data){
   console.log(data);
-  $("#donutimage").attr("src", "");
+  $("#donutimage").attr("src", data);
  $("#plainglaze").fadeIn(1000);
 }
 
