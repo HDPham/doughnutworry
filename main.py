@@ -61,6 +61,7 @@ class FinderHandler(webapp2.RequestHandler):
 
 class SelectDonutHandler(webapp2.RequestHandler):
     def post(self):
+        url = http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg
         
 
 class MakerHandler(webapp2.RequestHandler):
@@ -71,5 +72,6 @@ class MakerHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/finder', FinderHandler),
-    ('/maker', MakerHandler)
+    ('/maker', MakerHandler),
+    ('/select', SelectDonutHandler)
 ], debug=True)

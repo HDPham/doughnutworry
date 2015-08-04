@@ -3,7 +3,7 @@
 
 function ReceivedImage(data){
   console.log(data);
-  $("#donutimage").attr("src","http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg");
+  $("#donutimage").attr("src", "");
  $("#plainglaze").fadeIn(1000);
 }
 
@@ -11,7 +11,7 @@ $(document).ready(function() {
 
   $("#submit").click(function(e){
     e.preventDefault();
-    $.post("SelectDonutHandler", {"selected":"plain"}, ReceivedImage)
+    $.post("select", {"selected":"plain"}, ReceivedImage)
     console.log("button clicked");
  });
 });
