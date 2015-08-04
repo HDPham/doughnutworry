@@ -23,12 +23,6 @@ from google.appengine.api import users
 from google.appengine.api import urlfetch
 
 
-# I enjoyed the session very much. I though it was very helpful because we got to experience what a Google interview feels like. It was great to get a lot tips from our interviewer who had no problem answering all of questions.
-
-# I feel a lot better about going into a Google interview after our mock interview. It definitely made me feel better prepared for problem-solving and working with code during future interviews.
-
-# I think we had a slow start in the beginning but as we kept going, everything started flowing very naturally.
-
 jinja_environment = jinja2.Environment(
 loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions = ['jinja2.ext.autoescape'],
@@ -65,7 +59,9 @@ class FinderHandler(webapp2.RequestHandler):
         # google_maps_content = google_maps_data_source.content
         # parsed_google_maps_dictionary = json.loads(google_maps_content)
 
-
+class SelectDonutHandler(webapp2.RequestHandler):
+    def post(self):
+        
 
 class MakerHandler(webapp2.RequestHandler):
     def get(self):
