@@ -20,3 +20,15 @@ $(document).ready(function() {
 // http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg
 
 // select handler
+
+
+// var currentDonut;
+// function plainDonut() {
+//   var donutImage = document.getElementById('myImage');
+//   donutImage.src = "http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg";
+// }
+//
+// function chocolateDonut() {
+//   var donutImage = document.getElementById('myImage');
+//   donutImage.src = "http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg";
+// }
