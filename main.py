@@ -89,6 +89,7 @@ class SelectDonutHandler(webapp2.RequestHandler):
                     'chocodrizzle': "http://oi58.tinypic.com/33bg940.jpg",
                     'candy': "http://oi61.tinypic.com/1qmm55.jpg"}
         # url = "http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"
+        # http://oi60.tinypic.com/zl8979.jpg
         toppingimg = dtopping.get(chosen3)
         self.response.headers['Content-Type'] = 'application/json'
         response = {"url":cakeimg,

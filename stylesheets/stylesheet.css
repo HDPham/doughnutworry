@@ -1,5 +1,5 @@
 /*@import url(http://fonts.googleapis.com/css?family=Sigmar+One);*/
-@import url(http://fonts.googleapis.com/css?family=Sigmar+One|Francois+One);
+@import url(http://fonts.googleapis.com/css?family=Sigmar+One|Francois+One|Advent+Pro:600);
 #donutimage {
   width: 37%;
   text-align:center;
@@ -36,9 +36,28 @@ h1{
   text-align: center;
 }
 
-form{
-  text-align: center;
+div.movingforms{
+  float: left;
+  padding: 0 1.5%;
+  font-family: "Francois One";
+  color:black;
 }
+
+div#submitbutton{
+  margin-left: -80%;
+  margin-top: 15%;
+  width: auto;
+  font-size: 1.5em;
+}
+
+select{
+
+}
+
+#cakediv{
+  margin-left: 28%;
+}
+
 
 #links{
   display: inline-block;
