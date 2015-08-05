@@ -1,10 +1,25 @@
-#chocosprinkle{
-  width: 30%;
-  margin-left: 10%;
-  display: none;
+#donutimage {
+  width: 20%;
+  text-align:center;
+  z-index: 0;
+  position: absolute;
+  margin-top: 15%;
+  margin-left: 20%;
 }
-#plainglaze{
-  width: 30%;
-  margin-left: 10%;
-  display: none
+
+#frostingimage {
+  width: 22.5%;
+  text-align:center;
+  z-index: 50;
+  position: absolute;
+  margin-top: 13.5%;
+  margin-left: 19%;
+}
+#toppingimage {
+  width: 22%;
+  text-align:center;
+  z-index: 100;
+  position: absolute;
+  margin-top: 13.5%;
+  margin-left: 19.25%;
 }

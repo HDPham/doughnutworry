@@ -63,16 +63,38 @@ class FinderHandler(webapp2.RequestHandler):
 class SelectDonutHandler(webapp2.RequestHandler):
     def post(self):
         logging.info(self.request.get("selected"))
+        logging.info(self.request.get("selected2"))
         chosen = self.request.get("selected")
+        chosen2 = self.request.get("selected2")
+        chosen3 = self.request.get("selected3")
         # http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg
         # possibly add dictionary with values and their urls
         #cake = self.request.get_all('cake')
-        dcake = {'plain' : "http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2009/08/logosavedastransparentpng8.png",
-            'chocolate' : "http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg"}
-        url = dcake.get(chosen)
+        dcake = {'plain' : "http://oi59.tinypic.com/28ck1np.jpg",
+                'chocolate' : "http://oi59.tinypic.com/e6a73d.jpg",
+                'redvelvet' : "http://oi58.tinypic.com/2db12lv.jpg",
+                'lemon' : "http://oi59.tinypic.com/j6sgia.jpg",
+                'pistachio' : "http://oi59.tinypic.com/ok0g8l.jpg"}
+        cakeimg = dcake.get(chosen)
+        dfrosting = {'vanilla' : "http://oi61.tinypic.com/fllyfp.jpg",
+                    'chocolate' : "http://oi59.tinypic.com/2lk32v8.jpg",
+                    'strawberry': "http://oi60.tinypic.com/o8gbbs.jpg",
+                    'healthy': "http://oi62.tinypic.com/14t98qs.jpg",
+                    'fun': "http://oi61.tinypic.com/2r4rhtz.jpg"}
         # url = "http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"
+        frostingimg = dfrosting.get(chosen2)
+        dtopping = {'none' : "",
+                    'nuts' : "http://oi60.tinypic.com/adycdl.jpg",
+                    'fruit': "http://oi60.tinypic.com/2a68ai9.jpg",
+                    'chocochips': "http://oi60.tinypic.com/zl8979.jpg",
+                    'chocodrizzle': "http://oi58.tinypic.com/33bg940.jpg",
+                    'candy': "http://oi61.tinypic.com/1qmm55.jpg"}
+        # url = "http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"
+        toppingimg = dtopping.get(chosen3)
         self.response.headers['Content-Type'] = 'application/json'
-        response = {"url":url,
+        response = {"url":cakeimg,
+                    "urlf": frostingimg,
+                    "urlt": toppingimg,
                     # "name": "My Doughnut",
                     # "text_color": "red"
                     }

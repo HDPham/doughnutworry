@@ -28,34 +28,36 @@
       candy
     -->
   <div id="donutdiv"><img id="donutimage" class="flavor"  src=""/></div>
+  <div id="frostingdiv"><img id="frostingimage" class="flavor2"  src=""/></div>
+  <div id="toppingdiv"><img id="toppingimage" class="flavor3"  src=""/></div>
   <!-- <img class="flavor" id="chocosprinkle" src="http://www.metalinsider.net/site/wp-content/uploads/2014/06/chocolate-frosted-sprinkles-HI.jpg"/> -->
     <form method ="get" action="" id="making_donut_form">
       <select name="cake" id="cakeflavor">
         <option class ="cake plain" value="plain">Plain</option>
         <option class ="cake chocolate" value="chocolate">Chocolate</option>
-        <!-- <option value="redvelvet">Red Velvet</option>
+        <option value="redvelvet">Red Velvet</option>
         <option value="lemon">Lemon</option>
-        <option value="pistachio">Pistachio</option> -->
+        <option value="pistachio">Pistachio</option>
       </select>
 
 
-<!-- <br>
-      <select name="frosting">
-        <option value="vanilla">Vanilla Glaze</option>
-        <option value="chocolate">Chocolate</option>
+<br>
+      <select name="frosting" id="frostingflavor">
+        <option class ="flavor vanilla" value="vanilla">Vanilla Glaze</option>
+        <option class ="flavor chocolate" value="chocolate">Chocolate</option>
         <option value="strawberry">Strawberry</option>
-        <option value="lemon">Lemon Glaze</option>
-        <option value="orange">Orange Glaze</option>
+        <option value="healthy">Healthy Frosting</option>
+        <option value="fun">Fun Frosting</option>
       </select>
 <br>
-      <select name="toppings">
+      <select name="toppings" id="toppingflavor">
         <option value="none">No Topping</option>
         <option value="nuts">Nuts</option>
         <option value="fruit">Fruit</option>
         <option value="chocochips">Chocolate Chips</option>
         <option value="chocodrizzle">Chocolate Drizzle</option>
         <option value="candy">Candy</option>
-      </select> -->
+      </select>
       <p><input id="submit" type="submit" value="Make My Donut"></p>
     </form>
 
