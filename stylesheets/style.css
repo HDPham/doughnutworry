@@ -1,9 +1,15 @@
-#chocosprinkle{
+#map-canvas {
+  height: 450px;
+  width: 700px;
+}
+
+#chocosprinkle {
   width: 30%;
   margin-left: 10%;
   display: none;
 }
-#plainglaze{
+
+#plainglaze {
   width: 30%;
   margin-left: 10%;
   display: none
