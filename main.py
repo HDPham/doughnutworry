@@ -43,7 +43,6 @@ class MainHandler(webapp2.RequestHandler):
 
         user = users.get_current_user()
         if user:
-            self.response.write(user)
             user = UserModel(currentUser = user.user_id(), text = 'hey')
             user.put()
             self.response.write('<html><body><a href="%s">sign out</a></body></html>' % users.create_logout_url('/'))
