@@ -57,11 +57,11 @@ function searchCoords() {
     // $.post("record_request", {type: "coords", lat: lat, lon: lon});
     map.setCenter({lat: parseFloat(lat), lng: parseFloat(lon)});
     // We don't want to zoom in too much.
-    if(map.getZoom() > 13) {
-      map.setZoom(13);
+    if(map.getZoom() > 15) {
+      map.setZoom(15);
     }
     // console.log(map)
-    getRequest();
+    google.maps.event.addListenerOnce(map, 'bounds_changed', getRequest);
     return true;
   }
 }
@@ -112,7 +112,9 @@ function searchAddress() {
     // $.post("record_request", {type: "address", address: address});
 
     // Convert an address into precise locations, one or more, and calls the callback function when done.
-
+    if(map.getZoom() > 15) {
+      map.setZoom(15);
+    }
     getCoordinates(address);
     google.maps.event.addListenerOnce(map, 'bounds_changed', getRequest);
     return true;
@@ -140,7 +142,7 @@ function initialize(location) {
   var mapOptions = {
     center: new google.maps.LatLng(location.coords.latitude, location.coords.longitude),
     // center: new google.maps.LatLng(39, -90),
-    zoom: 13
+    zoom: 15
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
