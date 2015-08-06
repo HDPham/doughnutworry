@@ -45,7 +45,7 @@ class MainHandler(webapp2.RequestHandler):
         if user:
             user = UserModel(currentUser = user.user_id(), text = 'hey')
             user.put()
-            self.response.write('<html><body><a href="%s">sign out</a></body></html>' % users.create_logout_url('/'))
+            self.response.write('<a href="%s">sign out</a></body></html>' % users.create_logout_url('/'))
         else:
             self.redirect(users.create_login_url(self.request.uri))
 

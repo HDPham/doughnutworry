@@ -50,8 +50,11 @@ div#submitbutton{
   font-size: 1.5em;
 }
 
-select{
-
+#gohome{
+  position: absolute;
+  text-align: center;
+  top: 700px;
+  right: 643px;
 }
 
 #cakediv{
