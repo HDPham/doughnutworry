@@ -98,3 +98,8 @@ a {
     font-family: "Francois One";
     color:black;
 }
+
+#map-canvas {
+  height: 450px;
+  width: 700px;
+}

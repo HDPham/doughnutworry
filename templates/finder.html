@@ -2,15 +2,37 @@
 <html>
   <head>
     <title>Find Donut Shops Near Me</title>
+    <link type= "text/css" rel= "stylesheet" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXN-scV1v3O6noej4I0-X0Dy9Ob72yZbc&sensor=false&libraries=places"></script>
+    <script src="scripts/script.js"></script>
   </head>
 
   <body>
     <!--Testing if finder return user input-->
-    <form method="post" action ="">
+    <!-- <form method="post" action ="">
       <p>Where are you? <input type="text" name="location"/></p>
-      <p><input type="submit" value="Find me donuts!"></p>
-    </form>
+      <p><input type="submit" value="Find me donuts!"/></p>
+    </form> -->
 
+    <h3>Enter Coordinates:</h3>
+    <div>
+      <form>
+        <label>Latitude: <input type="text" name="lat" id="lat"/></label><br />
+        <label>Longitude: <input type="text" name="lon" id="lon"/></label><br />
+        <button type="button" id="coords-submit">Find me donuts!</button>
+      </form>
+    </div>
+
+    <h3>Or would you prefer to use an address?</h3>
+    <div>
+      <form>
+        <input type="text" id="address"/><br />
+        <button type="button" id="address-submit">Find me donuts!</button>
+      </form>
+    </div><br />
+
+    <div id="map-canvas"></div>
   </body>
 
 </html>
