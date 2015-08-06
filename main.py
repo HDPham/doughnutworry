@@ -30,14 +30,14 @@ loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions = ['jinja2.ext.autoescape'],
 autoescape = True)
 
-class CoordsRequest(ndb.Model):
-    lat = ndb.StringProperty(required = True)
-    lon = ndb.StringProperty(required = True)
-    timestamp = ndb.DateTimeProperty(auto_now_add = True)
-
-class AddressRequest(ndb.Model):
-    address = ndb.StringProperty(required = True)
-    timestamp = ndb.DateTimeProperty(auto_now_add = True)
+# class CoordsRequest(ndb.Model):
+#     lat = ndb.StringProperty(required = True)
+#     lon = ndb.StringProperty(required = True)
+#     timestamp = ndb.DateTimeProperty(auto_now_add = True)
+#
+# class AddressRequest(ndb.Model):
+#     address = ndb.StringProperty(required = True)
+#     timestamp = ndb.DateTimeProperty(auto_now_add = True)
 
 
 class Donut(ndb.Model):
@@ -60,7 +60,6 @@ class MainHandler(webapp2.RequestHandler):
         # template_vars = {'logout': users.create_logout_url('/')}
         user = users.get_current_user()
         if user:
-            self.response.write(user)
             user = UserModel(currentUser = user.user_id(), text = 'hey')
             user.put()
         else:
@@ -84,40 +83,70 @@ class FinderHandler(webapp2.RequestHandler):
         # google_maps_content = google_maps_data_source.content
         # parsed_google_maps_dictionary = json.loads(google_maps_content)
 
-class RecordRequestHandler(webapp2.RequestHandler):
-    def post(self):
-        logging.info(self.request)
-        if self.request.get('type') == "coords":
-            new_record = CoordsRequest(lat = self.request.get('lat'), lon = self.request.get('lon'))
-            new_record.put()
-        elif self.request.get('type') == "address":
-            new_address_record = AddressRequest(address = self.request.get('address'))
-            new_address_record.put()
-        else:
-            logging.error("Malformed Request!")
+# class RecordRequestHandler(webapp2.RequestHandler):
+#     def post(self):
+#         logging.info(self.request)
+#         if self.request.get('type') == "coords":
+#             new_record = CoordsRequest(lat = self.request.get('lat'), lon = self.request.get('lon'))
+#             new_record.put()
+#         elif self.request.get('type') == "address":
+#             new_address_record = AddressRequest(address = self.request.get('address'))
+#             new_address_record.put()
+#         else:
+#             logging.error("Malformed Request!")
 
 class SelectDonutHandler(webapp2.RequestHandler):
     def post(self):
+        logging.info(self.request.get("selected"))
+        logging.info(self.request.get("selected2"))
+        chosen = self.request.get("selected")
+        chosen2 = self.request.get("selected2")
+        chosen3 = self.request.get("selected3")
         # http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg
-        self.response.write("http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg")
+        # possibly add dictionary with values and their urls
+        #cake = self.request.get_all('cake')
+        dcake = {'plain' : "http://oi59.tinypic.com/28ck1np.jpg",
+                'chocolate' : "http://oi59.tinypic.com/e6a73d.jpg",
+                'redvelvet' : "http://oi58.tinypic.com/2db12lv.jpg",
+                'lemon' : "http://oi59.tinypic.com/j6sgia.jpg",
+                'pistachio' : "http://oi59.tinypic.com/ok0g8l.jpg"}
+        cakeimg = dcake.get(chosen)
+        dfrosting = {'vanilla' : "http://oi61.tinypic.com/fllyfp.jpg",
+                    'chocolate' : "http://oi59.tinypic.com/2lk32v8.jpg",
+                    'strawberry': "http://oi60.tinypic.com/o8gbbs.jpg",
+                    'healthy': "http://oi62.tinypic.com/14t98qs.jpg",
+                    'fun': "http://oi61.tinypic.com/2r4rhtz.jpg"}
+        # url = "http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"
+        frostingimg = dfrosting.get(chosen2)
+        dtopping = {'none' : "",
+                    'nuts' : "http://oi60.tinypic.com/adycdl.jpg",
+                    'fruit': "http://oi60.tinypic.com/2a68ai9.jpg",
+                    'chocochips': "http://oi60.tinypic.com/zl8979.jpg",
+                    'chocodrizzle': "http://oi58.tinypic.com/33bg940.jpg",
+                    'candy': "http://oi61.tinypic.com/1qmm55.jpg"}
+        # url = "http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg"
+        # http://oi60.tinypic.com/zl8979.jpg
+        toppingimg = dtopping.get(chosen3)
+        self.response.headers['Content-Type'] = 'application/json'
+        response = {"url":cakeimg,
+                    "urlf": frostingimg,
+                    "urlt": toppingimg,
+                    # "name": "My Doughnut",
+                    # "text_color": "red"
+                    }
+        self.response.write(json.dumps(response))
+
 
 class MakerHandler(webapp2.RequestHandler):
     def get(self):
         maker_template = jinja_environment.get_template('templates/maker.html')
         self.response.write(maker_template.render())
-        user = users.get_current_user()
-        if user:
-            self.response.write(user)
-            user = UserModel(currentUser = user.user_id(), text = 'hey')
-            user.put()
-        else:
-            self.redirect(users.create_login_url(self.request.uri))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/signup', SignUpHandler),
     ('/finder', FinderHandler),
-    ('/record_request', RecordRequestHandler),
+    # ('/record_request', RecordRequestHandler),
     ('/maker', MakerHandler),
     ('/select', SelectDonutHandler)
 ], debug=True)
