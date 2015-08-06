@@ -15,24 +15,34 @@
       <p><input type="submit" value="Find me donuts!"/></p>
     </form> -->
 
-    <h3>Enter Coordinates:</h3>
+    <!-- <h3>Enter Coordinates:</h3>
     <div>
       <form>
         <label>Latitude: <input type="text" name="lat" id="lat"/></label><br />
         <label>Longitude: <input type="text" name="lon" id="lon"/></label><br />
         <button type="button" id="coords-submit">Find me donuts!</button>
       </form>
-    </div>
+    </div> -->
 
-    <h3>Or would you prefer to use an address?</h3>
-    <div>
+    <h1>Find Me a Donut</h1>
+    <h3 id="finderheading">Doughnuts near you based on your wifi location:</h3>
+    <div id="map-canvas"></div>
+
+    <div id="address_input">
+    <h3 >Or would you prefer to use an address?</h3>
+
       <form>
         <input type="text" id="address"/><br />
         <button type="button" id="address-submit">Find me donuts!</button>
       </form>
     </div><br />
 
-    <div id="map-canvas"></div>
+    <div id="navi">
+      <a href="/maker">[ Make A Donut | </a>
+      <a href="/">Go Back Home | </a>
+      <a href="/about">About ]</a>
+    </div>
+
   </body>
 
 </html>
