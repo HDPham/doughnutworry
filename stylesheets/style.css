@@ -146,9 +146,20 @@ h3{
 }
 
 div.aboutp{
-  text-align: center;
+  align: center;
   float: left;
   width: 30%;
+
   padding: 1.5%;
+
+
+  margin: 1.5%;
+  margin-top: -2%;
+  /*border: 1px dotted black;
+  border-radius: 10%;*/
+}
+
+p{
+  text-align: center;
 
 }
