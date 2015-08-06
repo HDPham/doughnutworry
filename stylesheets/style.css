@@ -26,6 +26,15 @@
   margin-left: 32%;
 }
 
+#happy_image {
+  z-index: 100;
+  position: absolute;
+  height: 9%;
+  width: 4%;
+  padding-left: 23%;
+  padding-top: 1%;
+}
+
 body{
   background-color: #BAE4FF;
 }
@@ -102,4 +111,10 @@ a {
 #map-canvas {
   height: 450px;
   width: 700px;
+}
+
+#submitbutton{
+  float: left;
+  padding-left: 50%;
+
 }

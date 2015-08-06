@@ -108,7 +108,7 @@ class SelectDonutHandler(webapp2.RequestHandler):
         dcake = {'plain' : "http://oi59.tinypic.com/28ck1np.jpg",
                 'chocolate' : "http://oi59.tinypic.com/e6a73d.jpg",
                 'redvelvet' : "http://oi58.tinypic.com/2db12lv.jpg",
-                'lemon' : "http://oi59.tinypic.com/j6sgia.jpg",
+                'lemon' : "http://oi57.tinypic.com/2nj92bn.jpg",
                 'pistachio' : "http://oi59.tinypic.com/ok0g8l.jpg"}
         cakeimg = dcake.get(chosen)
         dfrosting = {'vanilla' : "http://oi61.tinypic.com/fllyfp.jpg",
