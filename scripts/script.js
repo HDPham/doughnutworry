@@ -38,10 +38,6 @@ var map;
 var service;
 var infowindow;
 
-// Sets the center location of the map
-function SetCenter(center) {
-  map.setCenter(center);
-}
 
 
 // Handler for the "coordinates" form
@@ -59,10 +55,10 @@ function searchCoords() {
     $('#address').val("");
     console.log("Valid Address");
     // $.post("record_request", {type: "coords", lat: lat, lon: lon});
-    SetCenter({lat: parseFloat(lat), lng: parseFloat(lon)});
+    map.setCenter({lat: parseFloat(lat), lng: parseFloat(lon)});
     // We don't want to zoom in too much.
-    if(map.getZoom() > 15) {
-      map.setZoom(15);
+    if(map.getZoom() > 13) {
+      map.setZoom(13);
     }
     // console.log(map)
     getRequest();
@@ -70,11 +66,21 @@ function searchCoords() {
   }
 }
 
-function createMarker(place) {
+function createMarker(place, name) {
+  console.log(name);
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
   });
+  // var infoWindowOptions = {content: name};
+  // var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+  var infoWindow = new google.maps.InfoWindow();
+  infoWindow.setContent('<strong>' + name + '</strong>');
+  google.maps.event.addListener(
+    marker,
+    'click',
+    function() {infoWindow.open(map, marker);}
+  );
 }
 
 // When Geocoder is done, it will call this function with the result.
@@ -83,20 +89,12 @@ function callback(results, status) {
     console.log(results);
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      createMarker(results[i]);
+      createMarker(results[i], results[i].name);
     }
   }
 }
 
-function getCoordinates(address, callback) {
-  geocoder.geocode({search_address: address}, function(results, status) {
-    var coords_obj = results[0].geometry.location;
-    var coordinates = [coords_obj.nb, coords_obj.ob];
-    console.log(coordinates);
-    SetCenter(coordinates);
-    getRequest();
-  });
-}
+
 
 // Handler for the "address" form.
 function searchAddress() {
@@ -114,11 +112,20 @@ function searchAddress() {
     // $.post("record_request", {type: "address", address: address});
 
     // Convert an address into precise locations, one or more, and calls the callback function when done.
-    var geocoder = new google.maps.Geocoder();
 
-    getRequest();
+    getCoordinates(address);
+    google.maps.event.addListenerOnce(map, 'bounds_changed', getRequest);
     return true;
   }
+}
+
+function getCoordinates(search_address) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({address: search_address}, function(results, status) {
+    var coords_obj = results[0].geometry.location;
+    var coordinates = [coords_obj['G'], coords_obj['K']];
+    map.setCenter({lat: coordinates[0], lng: coordinates[1]});
+  });
 }
 
 function getRequest() {
@@ -133,7 +140,7 @@ function initialize(location) {
   var mapOptions = {
     center: new google.maps.LatLng(location.coords.latitude, location.coords.longitude),
     // center: new google.maps.LatLng(39, -90),
-    zoom: 15
+    zoom: 13
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
