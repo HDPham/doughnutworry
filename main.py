@@ -142,11 +142,17 @@ class MakerHandler(webapp2.RequestHandler):
         maker_template = jinja_environment.get_template('templates/maker.html')
         self.response.write(maker_template.render())
 
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        about_template = jinja_environment.get_template('templates/about.html')
+        self.response.write(about_template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/signup', SignUpHandler),
     ('/finder', FinderHandler),
     # ('/record_request', RecordRequestHandler),
     ('/maker', MakerHandler),
-    ('/select', SelectDonutHandler)
+    ('/select', SelectDonutHandler),
+    ('/about', AboutHandler)
 ], debug=True)
