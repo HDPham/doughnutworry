@@ -23,6 +23,7 @@ function ReceivedTopping(data){
 $(document).ready(function() {
 
   $("#submit").click(function(e){
+
     e.preventDefault();
     var selected_value = $("#cakeflavor").val()
     $.post("select", {"selected": selected_value}, ReceivedDonut)
@@ -30,7 +31,9 @@ $(document).ready(function() {
     $.post("select", {"selected2": selected_value2}, ReceivedFrosting)
     var selected_value3 = $("#toppingflavor").val()
     $.post("select", {"selected3": selected_value3}, ReceivedTopping)
+    $.post("add", {"selected3": selected_value3, "selected2": selected_value2, "selected": selected_value})
     console.log("button clicked");
+    $.post("maker", {test: "test"})
  });
 });
 

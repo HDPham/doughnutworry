@@ -41,7 +41,6 @@ autoescape = True)
 
 
 class Donut(ndb.Model):
-    name = ndb.StringProperty()
     cake = ndb.StringProperty()
     topping = ndb.StringProperty()
     frosting = ndb.StringProperty()
@@ -105,6 +104,8 @@ class SelectDonutHandler(webapp2.RequestHandler):
         # http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg
         # possibly add dictionary with values and their urls
         #cake = self.request.get_all('cake')
+
+
         dcake = {'plain' : "http://oi59.tinypic.com/28ck1np.jpg",
                 'chocolate' : "http://oi59.tinypic.com/e6a73d.jpg",
                 'redvelvet' : "http://oi58.tinypic.com/2db12lv.jpg",
@@ -142,17 +143,46 @@ class MakerHandler(webapp2.RequestHandler):
         maker_template = jinja_environment.get_template('templates/maker.html')
         self.response.write(maker_template.render())
 
+    def post(self):
+        logging.info("maker handler POST request")
+        logging.info(self.request)
+        chosen = self.request.get("selected")
+        chosen2 = self.request.get("selected2")
+        chosen3 = self.request.get("selected3")
+        logging.info(chosen)
+        # donut1 = Donut(cake = chosen, topping = chosen2, frosting = chosen3)
+        # donut1.put()
+
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
         about_template = jinja_environment.get_template('templates/about.html')
         self.response.write(about_template.render())
 
+class AddHandler(webapp2.RequestHandler):
+    def post(self):
+        chosen = self.request.get("selected")
+        chosen2 = self.request.get("selected2")
+        chosen3 = self.request.get("selected3")
+        # http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg
+        # possibly add dictionary with values and their urls
+        #cake = self.request.get_all('cake')
+        donut1 = Donut(cake = chosen, topping = chosen2, frosting = chosen3)
+        donut1.put()
+
+class MyDonutsHandler(webapp2.RequestHandler):
+    def get(self):
+        my_donuts_template = jinja_environment.get_template('templates/my_donuts.html')
+        self.response.write(my_donuts_template.render())
+
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/signup', SignUpHandler),
     ('/finder', FinderHandler),
+    ('/my_donuts', MyDonutsHandler),
     # ('/record_request', RecordRequestHandler),
     ('/maker', MakerHandler),
+    ('/add', AddHandler),
     ('/select', SelectDonutHandler),
     ('/about', AboutHandler)
 ], debug=True)
