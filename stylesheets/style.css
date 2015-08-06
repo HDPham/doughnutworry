@@ -148,9 +148,11 @@ h3{
 div.aboutp{
   align: center;
   float: left;
-  width: 30%;
-  margin: 1.5%;
+  width: 25.3%;
+  margin: 4%;
   margin-top: -2%;
+  font-family: "Francois One";
+  font-size: 1em;
   /*border: 1px dotted black;
   border-radius: 10%;*/
 }
