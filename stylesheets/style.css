@@ -69,10 +69,10 @@ div#submitbutton{
 }
 
 #navi{
-  position: absolute;
   text-align: center;
+  position: absolute;
   top: 685px;
-  right: 643px;
+  /*right: 643px;*/
 }
 
 #cakediv{
@@ -132,15 +132,13 @@ a {
 #submitbutton{
   float: left;
   padding-left: 50%;
-
-
+}
 div.about{
   text-align: center;
   float: left;
   width: 30%;
   padding: 1.5%;
 }
-
 h3{
   font-family: "Francois One";
 }
@@ -149,10 +147,6 @@ div.aboutp{
   align: center;
   float: left;
   width: 30%;
-
-  padding: 1.5%;
-
-
   margin: 1.5%;
   margin-top: -2%;
   /*border: 1px dotted black;
@@ -161,5 +155,4 @@ div.aboutp{
 
 p{
   text-align: center;
-
 }
