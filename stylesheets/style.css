@@ -69,8 +69,8 @@ div#submitbutton{
 }
 
 #navi{
-  position: absolute;
   text-align: center;
+  position: absolute;
   top: 685px;
   left: 605px;
 }
@@ -132,6 +132,7 @@ a {
 #submitbutton{
   float: left;
   padding-left: 43%;
+}
 
 
 div.about{
@@ -140,7 +141,6 @@ div.about{
   width: 30%;
   padding: 1.5%;
 }
-
 h3{
   font-family: "Francois One";
 }
@@ -148,18 +148,15 @@ h3{
 div.aboutp{
   align: center;
   float: left;
-  width: 30%;
-
-  padding: 1.5%;
-
-
-  margin: 1.5%;
+  width: 25.3%;
+  margin: 4%;
   margin-top: -2%;
+  font-family: "Francois One";
+  font-size: 1em;
   /*border: 1px dotted black;
   border-radius: 10%;*/
 }
 
 p{
   text-align: center;
-
 }
