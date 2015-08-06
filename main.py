@@ -108,7 +108,7 @@ class SelectDonutHandler(webapp2.RequestHandler):
         dcake = {'plain' : "http://oi59.tinypic.com/28ck1np.jpg",
                 'chocolate' : "http://oi59.tinypic.com/e6a73d.jpg",
                 'redvelvet' : "http://oi58.tinypic.com/2db12lv.jpg",
-                'lemon' : "http://oi59.tinypic.com/j6sgia.jpg",
+                'lemon' : "http://oi57.tinypic.com/2nj92bn.jpg",
                 'pistachio' : "http://oi59.tinypic.com/ok0g8l.jpg"}
         cakeimg = dcake.get(chosen)
         dfrosting = {'vanilla' : "http://oi61.tinypic.com/fllyfp.jpg",
@@ -142,11 +142,17 @@ class MakerHandler(webapp2.RequestHandler):
         maker_template = jinja_environment.get_template('templates/maker.html')
         self.response.write(maker_template.render())
 
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        about_template = jinja_environment.get_template('templates/about.html')
+        self.response.write(about_template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/signup', SignUpHandler),
     ('/finder', FinderHandler),
     # ('/record_request', RecordRequestHandler),
     ('/maker', MakerHandler),
-    ('/select', SelectDonutHandler)
+    ('/select', SelectDonutHandler),
+    ('/about', AboutHandler)
 ], debug=True)

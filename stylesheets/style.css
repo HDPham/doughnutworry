@@ -26,6 +26,15 @@
   margin-left: 32%;
 }
 
+#happy_image {
+  z-index: 100;
+  position: absolute;
+  height: 9%;
+  width: 4%;
+  padding-left: 23%;
+  padding-top: 1%;
+}
+
 body{
   background-color: #BAE4FF;
 }
@@ -34,6 +43,15 @@ h1{
   font-family: 'Sigmar One';
   font-size: 3.5em;
   text-align: center;
+  outline-color: #000000;
+}
+
+h2{
+  font-family: 'Sigmar One';
+  font-size: 2em;
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: -2%;
 }
 
 div.movingforms{
@@ -50,11 +68,11 @@ div#submitbutton{
   font-size: 1.5em;
 }
 
-#gohome{
+#navi{
   position: absolute;
   text-align: center;
-  top: 700px;
-  right: 643px;
+  top: 685px;
+  left: 605px;
 }
 
 #cakediv{
@@ -70,7 +88,7 @@ div#submitbutton{
 #linkformaker{
   float: left;
   width: 29%;
-  padding-left: 18%;
+  padding-left: 16%;
   padding-right: 10%;
   padding-top: 2%;
 }
@@ -86,7 +104,13 @@ div#submitbutton{
 
 #finderlink{
   width: 100%;
+}
 
+#aboutlink{
+  position: absolute;
+  text-align: center;
+  top: 685px;
+  right: 640px;
 }
 
 .caption{
@@ -102,4 +126,40 @@ a {
 #map-canvas {
   height: 450px;
   width: 700px;
+}
+
+
+#submitbutton{
+  float: left;
+  padding-left: 43%;
+
+
+div.about{
+  text-align: center;
+  float: left;
+  width: 30%;
+  padding: 1.5%;
+}
+
+h3{
+  font-family: "Francois One";
+}
+
+div.aboutp{
+  align: center;
+  float: left;
+  width: 30%;
+
+  padding: 1.5%;
+
+
+  margin: 1.5%;
+  margin-top: -2%;
+  /*border: 1px dotted black;
+  border-radius: 10%;*/
+}
+
+p{
+  text-align: center;
+
 }
