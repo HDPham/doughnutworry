@@ -72,7 +72,7 @@ div#submitbutton{
   position: absolute;
   text-align: center;
   top: 685px;
-  right: 643px;
+  left: 605px;
 }
 
 #cakediv{
@@ -131,7 +131,7 @@ a {
 
 #submitbutton{
   float: left;
-  padding-left: 50%;
+  padding-left: 43%;
 
 
 div.about{
