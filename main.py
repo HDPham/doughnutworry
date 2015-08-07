@@ -55,7 +55,7 @@ class MainHandler(webapp2.RequestHandler):
         index_template = jinja_environment.get_template('templates/index.html')
         self.response.write(index_template.render())
 
-        template_vars = {'logout': users.create_logout_url('/')}
+        # template_vars = {'logout': users.create_logout_url('/')}
         user = users.get_current_user()
         if user:
             user = UserModel(currentUser = user.user_id(), text = 'hey')
