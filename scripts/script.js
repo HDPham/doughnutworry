@@ -71,9 +71,11 @@ function searchCoords() {
 
 function createMarker(place, name) {
   console.log(name);
+  // var image = 'http://vignette1.wikia.nocookie.net/smosh/images/b/b2/Pink_frosted_sprinkled_donut.jpg/revision/latest?cb=20120101131536';
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
+    // icon: image
   });
   // var infoWindowOptions = {content: name};
   // var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
