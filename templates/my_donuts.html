@@ -6,8 +6,19 @@
     <link type= "text/css" rel= "stylesheet" href="stylesheets/style.css"/>
   </head>
   <body>
-    <h1>Donut Worry, Be Happy!</h1>
-    <h2>My Donuts</h2>
+    <h1>My Donuts</h1>
+    
+
+{%for donut in donuts%}
+  {{donut[0]}}, {{donut[1]}}, {{donut[2]}}<br>
+{%endfor%}
+
+
+
+<!-- {%for item in donut0%}
+{{item}}
+{%endfor%} -->
+
 
   </body>
 </html>

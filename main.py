@@ -39,24 +39,23 @@ autoescape = True)
 #     address = ndb.StringProperty(required = True)
 #     timestamp = ndb.DateTimeProperty(auto_now_add = True)
 
+class UserModel(ndb.Model):
+    currentUser = ndb.StringProperty()
+    username = ndb.StringProperty()
+    text = ndb.TextProperty()
 
 class Donut(ndb.Model):
     cake = ndb.StringProperty()
     topping = ndb.StringProperty()
     frosting = ndb.StringProperty()
-
-class UserModel(ndb.Model):
-    currentUser = ndb.StringProperty()
-    username = ndb.StringProperty()
-    text = ndb.TextProperty()
-    previousDonuts = ndb.KeyProperty(Donut)
+    owner = ndb.KeyProperty(UserModel)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         index_template = jinja_environment.get_template('templates/index.html')
         self.response.write(index_template.render())
 
-        # template_vars = {'logout': users.create_logout_url('/')}
+        template_vars = {'logout': users.create_logout_url('/')}
         user = users.get_current_user()
         if user:
             user = UserModel(currentUser = user.user_id(), text = 'hey')
@@ -166,21 +165,31 @@ class AddHandler(webapp2.RequestHandler):
         # http://dennisdanvers.com/wp-content/uploads/2014/08/donut.jpg
         # possibly add dictionary with values and their urls
         #cake = self.request.get_all('cake')
-        donut1 = Donut(cake = chosen, topping = chosen2, frosting = chosen3)
+        user1 = UserModel(username="ThatGuy")
+        user1.put()
+        donut1 = Donut(cake = chosen, topping = chosen2, frosting = chosen3, owner=user1.key)
         donut1.put()
 
-class MyDonutsHandler(webapp2.RequestHandler):
     def get(self):
         my_donuts_template = jinja_environment.get_template('templates/my_donuts.html')
-        self.response.write(my_donuts_template.render())
+        query = Donut.query()
+        post_data = query.fetch()
+        donut_vars = {'donuts': []}
+        for i in range(0, len(post_data), 1):
+            user_data = post_data[i]
+            user_data_cake = user_data.cake
+            user_data_topping = user_data.topping
+            user_data_frosting = user_data.frosting
+            # Pass the data to the template
+            donut_vars['donuts'].append([user_data_cake, user_data_topping, user_data_frosting])
+        logging.info(donut_vars)
+        self.response.write(my_donuts_template.render(donut_vars))
 
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/signup', SignUpHandler),
     ('/finder', FinderHandler),
-    ('/my_donuts', MyDonutsHandler),
-    # ('/record_request', RecordRequestHandler),
     ('/maker', MakerHandler),
     ('/add', AddHandler),
     ('/select', SelectDonutHandler),

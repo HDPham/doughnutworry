@@ -107,10 +107,8 @@ div#submitbutton{
 }
 
 #aboutlink{
-  position: absolute;
   text-align: center;
-  top: 685px;
-  right: 640px;
+  margin-top: 5%;
 }
 
 .caption{
