@@ -7,12 +7,24 @@
   </head>
   <body>
     <h1>My Donuts</h1>
-    
 
+<div id="mydonuts">
+<ol>
 {%for donut in donuts%}
-  {{donut[0]}}, {{donut[1]}}, {{donut[2]}}<br>
+<div id="center">
+  <li>{{donut[0]}}, {{donut[1]}}, {{donut[2]}}</li><br>
+</div>
 {%endfor%}
+</ol>
+</div>
 
+
+
+<div class="navi" id="mynavi">
+  <a href="/about">[ About |</a>
+  <a href="/">Go Back Home | </a>
+  <a href="/maker">Make A Donut | </a>
+  <a href="/finder">Find My Donut ]</a>
 
 
 <!-- {%for item in donut0%}
