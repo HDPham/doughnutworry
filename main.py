@@ -170,18 +170,26 @@ class AddHandler(webapp2.RequestHandler):
         donut1 = Donut(cake = chosen, topping = chosen2, frosting = chosen3, owner=user1.key)
         donut1.put()
 
-class MyDonutsHandler(webapp2.RequestHandler):
     def get(self):
         my_donuts_template = jinja_environment.get_template('templates/my_donuts.html')
-        self.response.write(my_donuts_template.render())
+        query = Donut.query()
+        post_data = query.fetch()
+        donut_vars = {'donuts': []}
+        for i in range(0, len(post_data), 1):
+            user_data = post_data[i]
+            user_data_cake = user_data.cake
+            user_data_topping = user_data.topping
+            user_data_frosting = user_data.frosting
+            # Pass the data to the template
+            donut_vars['donuts'].append([user_data_cake, user_data_topping, user_data_frosting])
+        logging.info(donut_vars)
+        self.response.write(my_donuts_template.render(donut_vars))
 
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/signup', SignUpHandler),
     ('/finder', FinderHandler),
-    ('/my_donuts', MyDonutsHandler),
-    # ('/record_request', RecordRequestHandler),
     ('/maker', MakerHandler),
     ('/add', AddHandler),
     ('/select', SelectDonutHandler),
